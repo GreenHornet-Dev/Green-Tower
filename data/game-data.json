@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "game": {
+    "name": "Green Tower",
+    "theme": "dark-alien",
+    "maxStars": 10,
+    "outerSpaceUnlockStars": 10
+  },
+  "difficulties": [
+    { "id": "easy",   "label": "Cadet",     "disasterRate": 0.05, "fundsStart": 500000, "staffCostMult": 0.8 },
+    { "id": "medium", "label": "Commander", "disasterRate": 0.12, "fundsStart": 250000, "staffCostMult": 1.0 },
+    { "id": "hard",   "label": "Overlord",  "disasterRate": 0.22, "fundsStart": 100000, "staffCostMult": 1.3 }
+  ],
+  "floorTypes": [
+    { "id": "restaurant",   "label": "Restaurant",         "zone": "commercial", "cost": 15000, "income": 1200, "happiness": 8,  "capacity": 40, "staffNeeded": ["cleaner","security"] },
+    { "id": "retail",       "label": "Retail Shop",        "zone": "commercial", "cost": 10000, "income": 900,  "happiness": 6,  "capacity": 30, "staffNeeded": ["cleaner","security"] },
+    { "id": "office",       "label": "Office Space",       "zone": "commercial", "cost": 20000, "income": 2000, "happiness": 5,  "capacity": 50, "staffNeeded": ["cleaner","maintenance"] },
+    { "id": "single_bed",   "label": "Single Bedroom",     "zone": "residential","cost": 8000,  "income": 600,  "happiness": 7,  "capacity": 2,  "staffNeeded": ["cleaner"] },
+    { "id": "double_bed",   "label": "Double Bedroom",     "zone": "residential","cost": 12000, "income": 900,  "happiness": 8,  "capacity": 4,  "staffNeeded": ["cleaner"] },
+    { "id": "suite",        "label": "Suite",              "zone": "residential","cost": 30000, "income": 3000, "happiness": 10, "capacity": 6,  "staffNeeded": ["cleaner","vip_concierge"] },
+    { "id": "medical",      "label": "Medical Staff Floor","zone": "support",   "cost": 25000, "income": 0,    "happiness": 5,  "capacity": 20, "staffNeeded": ["medical"] },
+    { "id": "hospital",     "label": "Hospital",           "zone": "support",   "cost": 80000, "income": 500,  "happiness": 7,  "capacity": 60, "staffNeeded": ["medical","cleaner","security"] },
+    { "id": "security_hq",  "label": "Security HQ",        "zone": "support",   "cost": 20000, "income": 0,    "happiness": 4,  "capacity": 20, "staffNeeded": ["security"] },
+    { "id": "garden",       "label": "Garden Center",      "zone": "leisure",   "cost": 18000, "income": 400,  "happiness": 9,  "capacity": 30, "staffNeeded": ["maintenance","cleaner"] },
+    { "id": "farmers_market","label": "Farmers Market",    "zone": "leisure",   "cost": 22000, "income": 700,  "happiness": 9,  "capacity": 50, "staffNeeded": ["cleaner","security"] },
+    { "id": "greenhouse",   "label": "Greenhouse",         "zone": "leisure",   "cost": 35000, "income": 800,  "happiness": 10, "capacity": 20, "staffNeeded": ["maintenance"], "unlockStars": 5 },
+    { "id": "alien_store",  "label": "Alien Store",        "zone": "alien",     "cost": 50000, "income": 5000, "happiness": 10, "capacity": 15, "staffNeeded": ["security","special_tech"], "unlockStars": 7 },
+    { "id": "helipad",      "label": "Helicopter Pad",     "zone": "transport", "cost": 40000, "income": 200,  "happiness": 6,  "capacity": 4,  "staffNeeded": ["maintenance","medical"] },
+    { "id": "subway",       "label": "Subway Station",     "zone": "transport", "cost": 60000, "income": 300,  "happiness": 7,  "capacity": 100,"staffNeeded": ["security","maintenance"], "basementOnly": true },
+    { "id": "waste_storage","label": "Waste Storage",      "zone": "utility",   "cost": 5000,  "income": 0,    "happiness": 1,  "capacity": 0,  "staffNeeded": ["waste_crew"], "basementOnly": true },
+    { "id": "outer_space",  "label": "Outer Space Deck",   "zone": "alien",     "cost": 999999,"income": 50000,"happiness": 10, "capacity": 10, "staffNeeded": ["special_tech","security"], "unlockStars": 10 }
+  ],
+  "staffTypes": [
+    { "id": "security",     "label": "Security Guard",      "cost": 3000,  "range": 5,  "effect": "security",     "icon": "🛡" },
+    { "id": "medical",      "label": "Medical Staff",        "cost": 4000,  "range": 4,  "effect": "medical",      "icon": "🏥" },
+    { "id": "cleaner",      "label": "Cleaner",              "cost": 1500,  "range": 2,  "effect": "hygiene",      "icon": "🧹" },
+    { "id": "waste_crew",   "label": "Waste Removal Crew",   "cost": 2000,  "range": 3,  "effect": "waste",        "icon": "🗑" },
+    { "id": "maintenance",  "label": "Maintenance Tech",     "cost": 2500,  "range": 3,  "effect": "maintenance",  "icon": "🔧" },
+    { "id": "special_tech", "label": "Special Tech Master",  "cost": 8000,  "range": 10, "effect": "all",          "icon": "👽" },
+    { "id": "vip_concierge","label": "VIP Concierge",        "cost": 5000,  "range": 2,  "effect": "happiness",    "icon": "⭐" },
+    { "id": "camera_op",   "label": "Camera Operator",      "cost": 2000,  "range": 8,  "effect": "surveillance", "icon": "📷" }
+  ],
+  "systems": [
+    { "id": "fire_suppression", "label": "Fire Suppression", "cost": 15000, "range": 4, "protects": ["fire"] },
+    { "id": "fire_alarm",      "label": "Fire Alarm",        "cost": 5000,  "range": 6, "protects": ["fire"] },
+    { "id": "cameras",         "label": "CCTV Cameras",      "cost": 8000,  "range": 5, "protects": ["intrusion","alien_invasion"] },
+    { "id": "emp_defense",     "label": "EMP Defense Grid",  "cost": 30000, "range": 10,"protects": ["emp","alien_invasion"] },
+    { "id": "seismic_buffer",  "label": "Seismic Buffer",    "cost": 25000, "range": 10,"protects": ["earthquake","volcano"] }
+  ],
+  "elevators": [
+    { "id": "regular",  "label": "Regular Elevator",  "capacity": 20, "accessLevel": "all",    "cost": 10000, "staffOnly": false },
+    { "id": "service",  "label": "Service Elevator",  "capacity": 20, "accessLevel": "staff",  "cost": 12000, "staffOnly": true },
+    { "id": "express",  "label": "Express Elevator",  "capacity": 20, "accessLevel": "custom", "cost": 20000, "staffOnly": false },
+    { "id": "vip",      "label": "VIP Teleporter",    "capacity": 1,  "accessLevel": "vip",    "cost": 100000,"staffOnly": false, "unlockStars": 8 }
+  ],
+  "disasters": [
+    { "id": "fire",          "label": "Fire Outbreak",    "severity": 3, "counters": ["fire_suppression","fire_alarm","security"] },
+    { "id": "earthquake",    "label": "Earthquake",       "severity": 4, "counters": ["seismic_buffer","special_tech","maintenance"] },
+    { "id": "volcano",       "label": "Volcano Eruption", "severity": 5, "counters": ["seismic_buffer","special_tech"] },
+    { "id": "alien_invasion","label": "Alien Invasion",   "severity": 5, "counters": ["emp_defense","cameras","security","special_tech"] },
+    { "id": "emp",           "label": "EMP Surge",        "severity": 3, "counters": ["emp_defense","special_tech"] },
+    { "id": "alien_anger",   "label": "Alien Anger Wave", "severity": 4, "counters": ["emp_defense","special_tech","security"] }
+  ]
+}
