@@ -1,0 +1,16 @@
+{
+  "name": "green-tower",
+  "version": "1.0.0",
+  "description": "Green Tower - Alien management tower building game",
+  "scripts": {
+    "test": "jest --testPathPattern=tests/"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {}
+  }
+}

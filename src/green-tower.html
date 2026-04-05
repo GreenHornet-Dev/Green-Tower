@@ -11,6 +11,14 @@
         <header>
             <h1>🟢 GREEN TOWER</h1>
             <div class="stars" id="stars">⭐</div>
+            <div class="difficulty-selector">
+                <label for="difficulty-select">DIFFICULTY:</label>
+                <select id="difficulty-select" onchange="game.setDifficulty(this.value)">
+                    <option value="easy">Cadet</option>
+                    <option value="medium" selected>Commander</option>
+                    <option value="hard">Overlord</option>
+                </select>
+            </div>
         </header>
 
         <section class="stats">
@@ -28,7 +36,7 @@
             </div>
             <div class="stat-card">
                 <h3>ELEVATOR STATUS</h3>
-                <div class="value" id="elevator-status">Operational</div>
+                <div class="value" id="elevator-status">None installed</div>
             </div>
         </section>
 
@@ -75,6 +83,16 @@
         <footer class="controls">
             <button class="action-btn" onclick="game.morningCycle()">START MORNING CYCLE</button>
             <button class="action-btn" onclick="game.exportSave()">EXPORT SAVE</button>
+            <button class="action-btn" onclick="document.getElementById('import-input').click()">IMPORT SAVE</button>
+            <input type="file" id="import-input" accept=".json" style="display:none" onchange="
+                const file = this.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = e => game.importSave(e.target.result);
+                reader.readAsText(file);
+                this.value = '';
+            ">
+            <button class="action-btn" onclick="if(confirm('Reset game? All progress will be lost.')) game.resetGame()">RESET GAME</button>
             <div class="log-panel" id="log-panel">
                 <h3>SYSTEM LOG</h3>
                 <div id="log-content"></div>
@@ -86,7 +104,7 @@
         ⚠️ DISASTER IN PROGRESS ⚠️
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
     <script>
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
