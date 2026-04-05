@@ -365,7 +365,7 @@ class GreenTower {
       div.addEventListener('drop', (e) => {
         e.preventDefault();
         const targetId = f.id;
-        if (this._dragSourceId == null || this._dragSourceId === targetId) return;
+        if (this._dragSourceId === null || this._dragSourceId === targetId) return;
 
         // Swap floor type and happiness between source and target floors
         const src = this.state.floors.find(fl => fl.id === this._dragSourceId);
@@ -578,11 +578,11 @@ class GreenTower {
   }
 }
 
-/* eslint-disable no-undef */
-if (typeof module !== 'undefined' && module.exports) {
+// Use typeof guards to avoid linting errors in environments where these globals may not exist
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   // Node.js / test environment: export the class for unit testing
-  module.exports = { GreenTower };
-} else {
+  module.exports = { GreenTower };  // eslint-disable-line no-undef
+} else if (typeof window !== 'undefined') {
   // Browser environment: create the singleton game instance
   window.game = new GreenTower();
 }

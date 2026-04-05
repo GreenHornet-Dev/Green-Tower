@@ -23,7 +23,11 @@ global.document = {
   }),
   querySelectorAll: () => []
 };
-global.URL = { createObjectURL: () => 'blob:mock', revokeObjectURL: () => {} };
+global.URL = {
+  _counter: 0,
+  createObjectURL: () => `blob:mock-${++global.URL._counter}`,
+  revokeObjectURL: () => {}
+};
 global.Blob = class Blob {};
 global.fetch = () => Promise.reject(new Error('fetch not available in test env'));
 global.setInterval = () => {};
